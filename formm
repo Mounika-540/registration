@@ -1,0 +1,28 @@
+package com.example.registration;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.*;
+
+@SpringBootApplication
+@RestController
+public class RegistrationApplication {
+
+    @GetMapping("/")
+    public String home() {
+        return "User Registration Application";
+    }
+
+    @PostMapping("/register")
+    public String register(
+        @RequestParam String name,
+        @RequestParam String email) {
+
+        return "Registration Successful! Welcome " + name;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(
+            RegistrationApplication.class, args);
+    }
+}
